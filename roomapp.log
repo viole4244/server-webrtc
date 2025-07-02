@@ -1,0 +1,91 @@
+time="2025-07-01T15:51:29+05:30" level=info msg="🚀 Server starting on http://localhost:8080"
+time="2025-07-01T15:51:56+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T15:51:56+05:30" level=info msg="User registered" event=user_registered room_id= username=Megatron
+time="2025-07-01T15:51:58+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T15:51:58+05:30" level=info msg="User registered" event=user_registered room_id= username=Optimus
+time="2025-07-01T15:52:21+05:30" level=info msg="Room Joined" event=room_created room_id=1234 username=Megatron
+time="2025-07-01T15:52:21+05:30" level=info msg="Setting up peer A" room_id=1234
+time="2025-07-01T15:52:26+05:30" level=info msg="Room Joined" event=room_joined room_id=1234 username=Optimus
+time="2025-07-01T15:52:26+05:30" level=info msg="Setting up peer B" room_id=1234
+time="2025-07-01T15:52:26+05:30" level=info msg="Peer B received data channel" label=chat
+time="2025-07-01T15:52:26+05:30" level=info msg="✅ Server-side Data Channel for Peer B OPENED"
+time="2025-07-01T15:52:26+05:30" level=info msg="✅ Server-side Data Channel for Peer A OPENED"
+time="2025-07-01T15:52:40+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=1234 sender=Megatron target=peerA timestamp="2025-07-01T15:52:40+05:30" user=Megatron
+time="2025-07-01T15:52:40+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:06:37+05:30" level=info msg="🚀 Server starting on http://localhost:8080"
+time="2025-07-01T16:07:08+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:07:08+05:30" level=info msg="User registered" event=user_registered room_id= username=Optimus
+time="2025-07-01T16:07:10+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:07:10+05:30" level=info msg="User registered" event=user_registered room_id= username=megatron
+time="2025-07-01T16:07:16+05:30" level=info msg="Room Joined" event=room_created room_id=1234 username=Optimus
+time="2025-07-01T16:07:16+05:30" level=info msg="Setting up peer A" room_id=1234
+time="2025-07-01T16:07:19+05:30" level=info msg="Error reading message" error="websocket: close 1001 (going away)" event=read_error room_id=1234
+time="2025-07-01T16:07:21+05:30" level=info msg="Error reading message" error="websocket: close 1001 (going away)" event=read_error room_id=
+time="2025-07-01T16:07:30+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:07:30+05:30" level=info msg="User registered" event=user_registered room_id= username=aditya
+time="2025-07-01T16:07:32+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:07:32+05:30" level=info msg="User registered" event=user_registered room_id= username=adi
+time="2025-07-01T16:07:37+05:30" level=info msg="Room Joined" event=room_created room_id=xyz username=aditya
+time="2025-07-01T16:07:37+05:30" level=info msg="Setting up peer A" room_id=xyz
+time="2025-07-01T16:07:41+05:30" level=info msg="Room Joined" event=room_joined room_id=xyz username=adi
+time="2025-07-01T16:07:41+05:30" level=info msg="Setting up peer B" room_id=xyz
+time="2025-07-01T16:07:41+05:30" level=info msg="Peer B received data channel" label=chat
+time="2025-07-01T16:07:41+05:30" level=info msg="✅ Server-side Data Channel for Peer B OPENED"
+time="2025-07-01T16:07:41+05:30" level=info msg="✅ Server-side Data Channel for Peer A OPENED"
+time="2025-07-01T16:07:45+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=adi target=none timestamp="2025-07-01T16:07:45+05:30" user=adi
+time="2025-07-01T16:07:45+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:18:29+05:30" level=info msg="🚀 Server starting on http://localhost:8080"
+time="2025-07-01T16:19:23+05:30" level=info msg="🚀 Server starting on http://localhost:8080"
+time="2025-07-01T16:20:01+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:20:01+05:30" level=info msg="User registered" event=user_registered room_id= username=aditya
+time="2025-07-01T16:20:05+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:20:05+05:30" level=info msg="User registered" event=user_registered room_id= username=adi
+time="2025-07-01T16:20:11+05:30" level=info msg="Room Joined" event=room_created room_id=xyze username=aditya
+time="2025-07-01T16:20:11+05:30" level=info msg="Setting up peer A" room_id=xyze
+time="2025-07-01T16:20:16+05:30" level=info msg="Room Joined" event=room_joined room_id=xyze username=adi
+time="2025-07-01T16:20:16+05:30" level=info msg="Setting up peer B" room_id=xyze
+time="2025-07-01T16:20:16+05:30" level=info msg="Peer B received data channel" label=chat
+time="2025-07-01T16:20:16+05:30" level=info msg="✅ Server-side Data Channel for Peer B OPENED"
+time="2025-07-01T16:20:16+05:30" level=info msg="✅ Server-side Data Channel for Peer A OPENED"
+time="2025-07-01T16:20:19+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyze sender=aditya target=none timestamp="2025-07-01T16:20:19+05:30" user=aditya
+time="2025-07-01T16:20:19+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:28:52+05:30" level=info msg="🚀 Server starting on http://localhost:8080"
+time="2025-07-01T16:28:52+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:28:52+05:30" level=info msg="User registered" event=user_registered room_id= username=adda
+time="2025-07-01T16:28:55+05:30" level=info msg="🔗 Client connected"
+time="2025-07-01T16:28:55+05:30" level=info msg="User registered" event=user_registered room_id= username=qdqd
+time="2025-07-01T16:29:00+05:30" level=info msg="Room Joined" event=room_created room_id=xyz username=adda
+time="2025-07-01T16:29:00+05:30" level=info msg="Setting up peer A" room_id=xyz
+time="2025-07-01T16:29:05+05:30" level=info msg="Room Joined" event=room_joined room_id=xyz username=qdqd
+time="2025-07-01T16:29:05+05:30" level=info msg="Setting up peer B" room_id=xyz
+time="2025-07-01T16:29:05+05:30" level=info msg="Peer B received data channel" label=chat
+time="2025-07-01T16:29:05+05:30" level=info msg="✅ Server-side Data Channel for Peer B OPENED"
+time="2025-07-01T16:29:05+05:30" level=info msg="✅ Server-side Data Channel for Peer A OPENED"
+time="2025-07-01T16:29:07+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:29:07+05:30" user=qdqd
+time="2025-07-01T16:29:07+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:29:09+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=adda target=none timestamp="2025-07-01T16:29:09+05:30" user=adda
+time="2025-07-01T16:29:09+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:29:11+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=adda target=none timestamp="2025-07-01T16:29:11+05:30" user=adda
+time="2025-07-01T16:29:11+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:29:13+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:29:13+05:30" user=qdqd
+time="2025-07-01T16:29:13+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:29:29+05:30" level=info msg="Message relayed over data channel successfully" event=file-start roomId=xyz sender=adda target=none timestamp="2025-07-01T16:29:29+05:30" user=adda
+time="2025-07-01T16:29:29+05:30" level=info msg="Message relayed over data channel successfully" event=file-chunk roomId=xyz sender=adda target=none timestamp="2025-07-01T16:29:29+05:30" user=adda
+time="2025-07-01T16:29:29+05:30" level=info msg="Message relayed over data channel successfully" event=file-end roomId=xyz sender=adda target=none timestamp="2025-07-01T16:29:29+05:30" user=adda
+time="2025-07-01T16:29:29+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:29:29+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:29:29+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:30:40+05:30" level=info msg="Message relayed over data channel successfully" event=file-start roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:30:40+05:30" user=qdqd
+time="2025-07-01T16:30:40+05:30" level=info msg="Message relayed over data channel successfully" event=file-chunk roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:30:40+05:30" user=qdqd
+time="2025-07-01T16:30:40+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:30:40+05:30" level=info msg="Message relayed over data channel successfully" event=file-chunk roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:30:40+05:30" user=qdqd
+time="2025-07-01T16:30:40+05:30" level=info msg="Message relayed over data channel successfully" event=file-chunk roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:30:40+05:30" user=qdqd
+time="2025-07-01T16:30:40+05:30" level=info msg="Message relayed over data channel successfully" event=file-end roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:30:40+05:30" user=qdqd
+time="2025-07-01T16:30:40+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:30:40+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:30:40+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:30:40+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"
+time="2025-07-01T16:31:20+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=adda target=none timestamp="2025-07-01T16:31:20+05:30" user=adda
+time="2025-07-01T16:31:20+05:30" level=info msg="Message from Peer A DC relayed to Peer B WS"
+time="2025-07-01T16:31:24+05:30" level=info msg="Message relayed over data channel successfully" event=chat roomId=xyz sender=qdqd target=none timestamp="2025-07-01T16:31:24+05:30" user=qdqd
+time="2025-07-01T16:31:24+05:30" level=info msg="Message from Peer B DC relayed to Peer A WS"

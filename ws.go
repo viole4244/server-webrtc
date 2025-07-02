@@ -2,22 +2,23 @@ package main
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/websocket"
 	"github.com/pion/webrtc/v3"
+	"github.com/sirupsen/logrus"
 )
 
 func handleConnections(w http.ResponseWriter, r *http.Request) {
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		log.Println("Failed to upgrade connection:", err)
+		logrus.Info("Failed to upgrade connection:", err)
 		return
 	}
 	defer ws.Close()
 
-	log.Println("🔗 Client connected")
+	logrus.Info("🔗 Client connected")
 
 	var username string
 	var associatedRoomID string
@@ -27,7 +28,10 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 		var msg Message
 		err := ws.ReadJSON(&msg)
 		if err != nil {
-			log.Printf("Read error: %v. Cleaning up.", err)
+			logrus.WithFields(logrus.Fields{
+				"event":   "read_error",
+				"room_id": associatedRoomID,
+			}).WithError(err).Info("Error reading message")
 			cleanupDisconnectedUser(ws, associatedRoomID, username)
 			break
 		}
@@ -41,7 +45,11 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 			name, ok := msg.Payload.(string)
 			if ok && name != "" {
 				username = name
-				log.Printf("User %s registered.", username)
+				logrus.WithFields(logrus.Fields{
+					"event":    "user_registered",
+					"username": username,
+					"room_id":  msg.RoomID,
+				}).Info("User registered")
 				_ = ws.WriteJSON(Message{Type: "registered"})
 			}
 
@@ -64,6 +72,11 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 
 			associatedRoomID = msg.RoomID
 			isPeerA = true
+			logrus.WithFields(logrus.Fields{
+				"event":    "room_created",
+				"username": username,
+				"room_id":  msg.RoomID,
+			}).Info("Room Joined")
 			_ = ws.WriteJSON(Message{Type: "status", Payload: "Room created. Waiting for the other peer..."})
 			go setupPeerA(newRoom)
 
@@ -78,25 +91,61 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 
 			associatedRoomID = msg.RoomID
 			isPeerA = false
+			logrus.WithFields(logrus.Fields{
+				"event":    "room_joined",
+				"username": username,
+				"room_id":  msg.RoomID,
+			}).Info("Room Joined")
 			_ = ws.WriteJSON(Message{Type: "status", Payload: "Joined room. Establishing connection..."})
 			_ = room.peerA_ws.WriteJSON(Message{Type: "status", Payload: username + " joined. Establishing connection..."})
 			go setupPeerB(room)
 
 		case "chat", "file-start", "file-chunk", "file-end":
 			if !roomExists {
+				logrus.WithFields(logrus.Fields{
+					"event":  msg.Type,
+					"user":   username,
+					"roomId": msg.RoomID,
+				}).Warn("Attempted to send message to non-existent room")
 				continue
 			}
+
 			msg.Sender = username
 			messageBytes, err := json.Marshal(msg)
 			if err != nil {
-				log.Println("Error marshalling message:", err)
+				logrus.WithFields(logrus.Fields{
+					"event":  "marshal-error",
+					"user":   username,
+					"type":   msg.Type,
+					"roomId": msg.RoomID,
+				}).WithError(err).Error("Failed to marshal message")
 				continue
 			}
+
 			room.mu.Lock()
+
+			target := "none"
+			var sendErr error
+
 			if isPeerA && room.peerA_dc != nil && room.peerA_dc.ReadyState() == webrtc.DataChannelStateOpen {
 				_ = room.peerA_dc.SendText(string(messageBytes))
 			} else if !isPeerA && room.peerB_dc != nil && room.peerB_dc.ReadyState() == webrtc.DataChannelStateOpen {
 				_ = room.peerB_dc.SendText(string(messageBytes))
+			}
+
+			entry := logrus.WithFields(logrus.Fields{
+				"event":     msg.Type,
+				"user":      username,
+				"roomId":    msg.RoomID,
+				"sender":    msg.Sender,
+				"target":    target,
+				"timestamp": time.Now().Format(time.RFC3339),
+			})
+
+			if sendErr != nil {
+				entry.WithError(sendErr).Error("Failed to send message over data channel")
+			} else {
+				entry.Info("Message relayed over data channel successfully")
 			}
 			room.mu.Unlock()
 		}

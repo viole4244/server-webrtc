@@ -5,6 +5,8 @@ go 1.23.4
 require (
 	github.com/gorilla/websocket v1.5.3
 	github.com/pion/webrtc/v3 v3.3.5
+	github.com/sirupsen/logrus v1.9.3
+	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 )
 
 require (
